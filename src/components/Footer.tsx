@@ -10,7 +10,6 @@ const Footer: React.FC = () => {
     { name: 'About Us', path: '/about' },
   ];
 
-  const pizzaCategories = ['Standard Pizzas', 'Traditional Pizzas', 'Premium Pizzas', 'Drinks & Sides'];
 
   return (
     <footer className="bg-bg-dark text-white">

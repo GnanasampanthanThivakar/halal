@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Clock, Truck, Store, ExternalLink } from 'lucide-react';
+import { MapPin, Phone, Truck, Store, ExternalLink } from 'lucide-react';
 
 const Location: React.FC = () => {
   return (

@@ -4,7 +4,7 @@ import gsap from 'gsap';
 
 const WelcomePopup: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
+
   const overlayRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -60,7 +60,6 @@ const WelcomePopup: React.FC = () => {
   }, [isVisible]);
 
   const handleClose = () => {
-    setIsClosing(true);
     const tl = gsap.timeline({
       onComplete: () => setIsVisible(false),
     });
