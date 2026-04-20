@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0.625rem;
+  }
+
+  body {
+    @apply font-inter text-text-primary antialiased;
+    overflow-x: hidden;
+  }
+
+  * {
+    @apply border-border;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto max-w-container px-4;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center bg-accent-red text-white font-inter font-semibold text-sm px-7 py-3.5 rounded transition-all duration-300;
+  }
+
+  .btn-primary:hover {
+    @apply bg-accent-red-hover -translate-y-0.5;
+    box-shadow: 0 6px 20px rgba(226, 25, 32, 0.4);
+  }
+
+  .btn-green {
+    @apply inline-flex items-center justify-center bg-primary-green text-white font-inter font-semibold text-sm px-7 py-3.5 rounded transition-all duration-300;
+  }
+
+  .btn-green:hover {
+    @apply bg-primary-green-light -translate-y-0.5;
+  }
+
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-green to-primary-green-light;
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32;
+  }
+}
+
+/* Custom Gradients */
+.bg-paradise-gradient {
+  background: linear-gradient(135deg, #1B4D3E 0%, #2D7A5F 100%);
+}
+
+.bg-warm-gradient {
+  background: linear-gradient(135deg, #F5F0E6 0%, #FFFFFF 100%);
+}
+
+/* Hide scrollbar for category carousel */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
