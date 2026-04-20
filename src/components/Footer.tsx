@@ -31,10 +31,10 @@ const Footer: React.FC = () => {
               </svg>
               <div className="flex flex-col">
                 <span className="font-barlow font-bold text-xl text-white leading-none uppercase tracking-tight">
-                  Taste of Paradise
+                  Halal Pizza
                 </span>
                 <span className="text-[9px] text-primary-green-light font-bold tracking-widest uppercase">
-                  Halal Pizza
+                 Taste of Paradise  
                 </span>
               </div>
             </div>

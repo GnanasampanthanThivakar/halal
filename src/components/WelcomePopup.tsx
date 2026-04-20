@@ -90,13 +90,13 @@ const WelcomePopup: React.FC = () => {
       {/* Popup Card */}
       <div
         ref={popupRef}
-        className="relative w-full max-w-[520px] rounded-[40px] overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.5)]"
+        className="relative w-full max-w-[520px] overflow-hidden"
         style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="absolute top-5 right-5 z-30 w-10 h-10 rounded-full bg-black/30 backdrop-blur-md text-white/80 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:scale-110"
+          className="absolute top-5 right-5 z-30 w-10 h-10 bg-black/30 backdrop-blur-md text-white/80 flex items-center justify-center hover:bg-white hover:text-black transition-all duration-300 hover:scale-110"
         >
           <X size={18} strokeWidth={3} />
         </button>
@@ -113,7 +113,7 @@ const WelcomePopup: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#0a1f17]/40 to-transparent" />
           
           {/* "With Compliments" ribbon */}
-          <div className="popup-el absolute top-5 left-0 bg-accent-red/95 backdrop-blur-sm text-white px-6 py-2 rounded-r-full shadow-xl">
+          <div className="popup-el absolute top-5 left-0 bg-accent-red/95 backdrop-blur-sm text-white px-6 py-2 shadow-xl">
             <p className="font-inter text-[10px] font-bold uppercase tracking-[0.3em]">With Compliments From</p>
           </div>
 
@@ -156,7 +156,7 @@ const WelcomePopup: React.FC = () => {
         <div className="bg-gradient-to-b from-[#0a1f17] to-[#0d2a1f] px-8 py-8">
           {/* Announcements */}
           <div className="popup-el mb-6">
-            <div className="bg-accent-yellow/10 border border-accent-yellow/20 rounded-2xl px-5 py-4">
+            <div className="bg-accent-yellow/10 border border-accent-yellow/20 px-5 py-4">
               <p className="text-accent-yellow font-black text-center text-sm md:text-base uppercase tracking-wider">
                  NOW OPEN FOR FAMILY DINING
               </p>
@@ -168,19 +168,19 @@ const WelcomePopup: React.FC = () => {
 
           {/* Feature Tags */}
           <div className="popup-el grid grid-cols-2 gap-3 mb-6">
-            <div className="flex items-center gap-2.5 bg-white/5 rounded-xl px-3.5 py-3 border border-white/5">
+            <div className="flex items-center gap-2.5 bg-white/5 px-3.5 py-3 border border-white/5">
               <Truck size={16} className="text-primary-green-light shrink-0" />
               <span className="text-white/80 text-xs font-semibold">Home Delivery</span>
             </div>
-            <div className="flex items-center gap-2.5 bg-white/5 rounded-xl px-3.5 py-3 border border-white/5">
+            <div className="flex items-center gap-2.5 bg-white/5 px-3.5 py-3 border border-white/5">
               <UtensilsCrossed size={16} className="text-primary-green-light shrink-0" />
               <span className="text-white/80 text-xs font-semibold">Catering Available</span>
             </div>
-            <div className="flex items-center gap-2.5 bg-white/5 rounded-xl px-3.5 py-3 border border-white/5">
+            <div className="flex items-center gap-2.5 bg-white/5 px-3.5 py-3 border border-white/5">
               <Clock size={16} className="text-primary-green-light shrink-0" />
               <span className="text-white/80 text-xs font-semibold">Lunch & Dinner</span>
             </div>
-            <div className="flex items-center gap-2.5 bg-white/5 rounded-xl px-3.5 py-3 border border-white/5">
+            <div className="flex items-center gap-2.5 bg-white/5 px-3.5 py-3 border border-white/5">
               <Star size={16} className="text-accent-yellow shrink-0" />
               <span className="text-white/80 text-xs font-semibold">Since 1995</span>
             </div>
@@ -189,7 +189,7 @@ const WelcomePopup: React.FC = () => {
           {/* CTA - Call to Order */}
           <a
             href="tel:0397939888"
-            className="popup-cta popup-el group flex items-center justify-center gap-4 w-full bg-gradient-to-r from-accent-red to-[#ff2d35] hover:from-[#ff2d35] hover:to-accent-red text-white rounded-2xl py-5 shadow-[0_8px_30px_rgba(226,25,32,0.4)] hover:shadow-[0_12px_40px_rgba(226,25,32,0.6)] transition-all duration-300 hover:-translate-y-0.5"
+            className="popup-cta popup-el group flex items-center justify-center gap-4 w-full bg-gradient-to-r from-accent-red to-[#ff2d35] hover:from-[#ff2d35] hover:to-accent-red text-white py-5 transition-all duration-300 hover:-translate-y-0.5"
           >
             <div className="w-11 h-11 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
               <Phone size={20} fill="white" />
