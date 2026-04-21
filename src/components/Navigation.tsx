@@ -30,21 +30,15 @@ const Navigation: React.FC = () => {
         isScrolled ? 'shadow-[0_2px_20px_rgba(0,0,0,0.08)] backdrop-blur-sm' : ''
       }`}
     >
-      <div className="container-custom flex items-center justify-between h-20">
+      <div className="container-custom flex items-center justify-between h-28">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          <div className="relative">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <circle cx="20" cy="20" r="18" fill="#1B4D3E" />
-              <path
-                d="M12 28C12 20 16 14 20 12C24 14 28 20 28 28"
-                stroke="white"
-                strokeWidth="2"
-                fill="none"
-              />
-              <circle cx="20" cy="10" r="3" fill="#FFC107" />
-              <path d="M17 8L20 5L23 8" stroke="white" strokeWidth="1.5" fill="none" />
-            </svg>
+          <div className="relative w-24 h-24">
+            <img 
+              src="/images/logo_halal.png" 
+              alt="Halal Pizza Logo" 
+              className="w-full h-full object-contain"
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-barlow font-bold text-xl text-text-primary leading-none uppercase tracking-tight">

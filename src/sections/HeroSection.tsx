@@ -126,8 +126,12 @@ const HeroSection: React.FC = () => {
             <div className="relative w-[300px] md:w-[500px] lg:w-[600px] aspect-square">
               {/* Halal Badge Overlay */}
               <div className="absolute top-0 right-0 z-20 w-32 h-32 md:w-40 md:h-40 glass-card rounded-full p-4 flex flex-col items-center justify-center text-center animate-spin-slow hover:pause-animation">
-                <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary-green">100% Halal</span>
-                <span className="text-[14px] md:text-lg font-black uppercase text-text-primary">Certified</span>
+                <img 
+                  src="/images/logo_halal.png" 
+                  alt="100% Halal Certified" 
+                  className="w-[85%] h-[85%] object-contain"
+                />
+                <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary-green-light mt-1">100% Halal</span>
               </div>
               
               <div className="absolute inset-0 bg-primary-green/10 rounded-full blur-3xl" />

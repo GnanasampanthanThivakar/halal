@@ -118,26 +118,24 @@ const WelcomePopup: React.FC = () => {
           </div>
 
           {/* Halal Badge - top right */}
-          <div className="halal-badge absolute top-5 right-16 w-16 h-16">
-            <div className="w-full h-full rounded-full bg-[#1B8C3D] border-[3px] border-white/30 shadow-xl flex flex-col items-center justify-center">
-              <span className="text-white font-black text-[10px] uppercase tracking-wider leading-none">100%</span>
-              <span className="text-white font-black text-xs uppercase tracking-wider leading-none mt-0.5">حلال</span>
-              <span className="text-white/80 font-bold text-[7px] uppercase tracking-widest">HALAL</span>
-            </div>
+          <div className="halal-badge absolute top-5 right-10 w-32 h-32">
+            <img 
+              src="/images/logo_halal.png" 
+              alt="Halal Certified" 
+              className="w-full h-full object-contain drop-shadow-xl"
+            />
           </div>
 
           {/* Logo area at bottom of image */}
           <div ref={contentRef} className="absolute bottom-0 left-0 right-0 px-8 pb-6">
-            <div className="popup-el flex items-end gap-3">
-              {/* Palm tree icon */}
-              <div className="flex flex-col items-center">
-                <svg width="28" height="40" viewBox="0 0 28 40" fill="none">
-                  <ellipse cx="14" cy="12" rx="12" ry="8" fill="#4CAF50" opacity="0.9" />
-                  <ellipse cx="8" cy="14" rx="8" ry="5" fill="#66BB6A" opacity="0.7" transform="rotate(-20 8 14)" />
-                  <ellipse cx="20" cy="14" rx="8" ry="5" fill="#66BB6A" opacity="0.7" transform="rotate(20 20 14)" />
-                  <rect x="13" y="16" width="2" height="22" rx="1" fill="#8D6E63" />
-                </svg>
-              </div>
+              <div className="popup-el flex items-end gap-1">
+                <div className="w-24 h-24 -mb-2">
+                  <img 
+                    src="/images/logo_halal.png" 
+                    alt="Logo" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
               <div>
                 <h2 className="font-barlow font-black text-4xl md:text-5xl text-white uppercase leading-[0.85] tracking-tight drop-shadow-lg">
                   Taste of<br />
