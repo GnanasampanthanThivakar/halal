@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router';
 import gsap from 'gsap';
-import { Phone, ArrowRight } from 'lucide-react';
+import { Phone, ArrowRight, Star } from 'lucide-react';
+import ScrollSequence from '@/components/ScrollSequence';
 
 const HeroSection: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -31,7 +32,7 @@ const HeroSection: React.FC = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[85vh] md:min-h-screen bg-bg-cream/40 overflow-hidden flex items-center pt-20"
+      className="relative min-h-screen bg-bg-cream/40 overflow-hidden flex items-center pt-20"
     >
       {/* Background Graphic Elements */}
       <div className="absolute top-20 right-[-10%] w-[40%] h-[40%] bg-primary-green/5 blur-[120px] rounded-full" />
@@ -46,12 +47,12 @@ const HeroSection: React.FC = () => {
               Serving Since 1995
             </div>
             
-            <h1 className="hero-el font-barlow font-black text-6xl md:text-8xl lg:text-9xl text-text-primary leading-[0.9] uppercase mb-6 tracking-tighter">
+            <h1 className="hero-el font-barlow font-black text-5xl md:text-7xl lg:text-8xl text-text-primary leading-[0.9] uppercase mb-6 tracking-tighter">
               Taste of <br />
               <span className="text-primary-green">Paradise</span>
             </h1>
             
-            <p className="hero-el font-inter text-xl md:text-2xl text-text-secondary mb-10 max-w-xl mx-auto lg:mx-0">
+            <p className="hero-el font-inter text-lg md:text-xl text-text-secondary mb-10 max-w-xl mx-auto lg:mx-0">
               "Fresh. Halal. Delicious." All our pizzas are crafted with fresh quality Halal ingredients since 1995.
             </p>
 
@@ -121,25 +122,43 @@ const HeroSection: React.FC = () => {
             </div>
           </div>
 
-          {/* Pizza Image Right */}
-          <div ref={imageRef} className="relative order-1 lg:order-2 flex justify-center">
-            <div className="relative w-[300px] md:w-[500px] lg:w-[600px] aspect-square">
-              {/* Halal Badge Overlay */}
-              <div className="absolute top-0 right-0 z-20 w-32 h-32 md:w-40 md:h-40 glass-card rounded-full p-4 flex flex-col items-center justify-center text-center animate-spin-slow hover:pause-animation">
-                <img 
-                  src="/images/logo_halal.png" 
-                  alt="100% Halal Certified" 
-                  className="w-[85%] h-[85%] object-contain"
+          {/* Editorial Frame & Pizza Right */}
+          <div ref={imageRef} className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
+            <div className="relative w-[320px] md:w-[450px] lg:w-[500px]">
+              {/* The "Editorial" Video Frame */}
+              <div className="relative aspect-[4/5] bg-white p-3 md:p-5 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border-[12px] border-white rounded-[2.5rem] overflow-hidden rotate-2 hover:rotate-0 transition-transform duration-700 ease-out z-0">
+                <ScrollSequence 
+                  frameCount={81}
+                  baseUrl="/images/frames/powerai-7dadd4c2-ec96-49ae-a214-65e390e4ceed_frames"
+                  prefix="powerai-7dadd4c2-ec96-49ae-a214-65e390e4ceed"
+                  containerRef={sectionRef}
                 />
-                <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-primary-green-light mt-1">100% Halal</span>
+                
+                {/* Frame Caption */}
+                <div className="absolute bottom-6 left-6 z-10 text-white mix-blend-difference opacity-50">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em]">Paradise Kitchen / 2024</p>
+                </div>
               </div>
-              
-              <div className="absolute inset-0 bg-primary-green/10 rounded-full blur-3xl" />
-              <img
-                src="/images/pizza-hero.png"
-                alt="Signature Halal Pizza"
-                className="w-full h-full object-contain relative z-10 drop-shadow-[0_32px_64px_rgba(0,0,0,0.2)]"
-              />
+
+              {/* Minimalist Circular Text Seal Instead of Bulky Circle */}
+              <div className="absolute -left-12 -bottom-12 md:-left-20 md:-bottom-20 w-32 h-32 md:w-36 md:h-36 z-20 pointer-events-none drop-shadow-xl">
+                <div className="w-full h-full animate-[spin_15s_linear_infinite] relative bg-bg-cream/90 rounded-full border border-border-light shadow-lg flex items-center justify-center p-2">
+                  <svg viewBox="0 0 100 100" className="w-full h-full absolute inset-0 text-primary-green overflow-visible">
+                    <path id="textPathH" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" />
+                    <text className="text-[12px] font-barlow font-bold uppercase tracking-[0.2em] fill-current">
+                      <textPath href="#textPathH" startOffset="0%">
+                        • 100% HALAL CERTIFIED • PREMIUM QUALITY
+                      </textPath>
+                    </text>
+                  </svg>
+                  <div className="absolute inset-0 flex items-center justify-center text-accent-orange">
+                    <Star size={24} fill="currentColor" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Background Glow */}
+              <div className="absolute inset-0 bg-primary-green/10 rounded-full blur-[100px] -z-10" />
             </div>
           </div>
         </div>

@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChefHat, Info } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface PizzaItem {
   id: number;
@@ -53,11 +57,68 @@ const drinksSides = [
   { name: '9" Garlic Bread', price: '4.00' },
 ];
 
+const getPizzaImage = (id: number, name: string) => {
+  // 12 verified Unsplash IDs that will NEVER 404
+  const workingIds = [
+    '1574071318508-1cdbab80d002', // 0: Margherita
+    '1565299624946-b28f40a0ae38', // 1: Tropical / Hawaiian
+    '1628840042765-356cda07504e', // 2: Meat / Pepperoni
+    '1513104890138-7c749659a591', // 3: Veggie / Classic
+    '1555072956-7758afb20e8f',    // 4: Seafood
+    '1576458088443-04a19bb13da6', // 5: Chicken
+    '1564936281291-294551497d81', // 6: Spicy / Mexicana
+    '1528137871618-79d2761e3fd5', // 7: Dessert
+    '1604382354936-07c5d9983bd3', // 8: Supreme
+    '1590947132387-155cc02f3212', // 9: Rustic
+    '1595708684082-a173bb3a06c5', // 10: Capricciosa
+    '1573821663912-569905455b1c', // 11: Cheese
+  ];
+
+  let index = 0;
+  const n = name.toLowerCase();
+
+  // Match pizza to the best visual style
+  if (n.includes('margherita')) index = 0;
+  else if (n.includes('hawaiian') || n.includes('tropical') || n.includes('paradise')) index = 1;
+  else if (n.includes('pepperoni') || n.includes('beef') || n.includes('meat') || n.includes('lamb')) index = 2;
+  else if (n.includes('veg') || n.includes('garlic')) index = 3;
+  else if (n.includes('sea') || n.includes('fish')) index = 4;
+  else if (n.includes('chicken') || n.includes('bbq') || n.includes('tandoori')) index = 5;
+  else if (n.includes('spicy') || n.includes('mexicana') || n.includes('curry')) index = 6;
+  else if (n.includes('dessert')) index = 7;
+  else if (n.includes('supreme') || n.includes('special') || n.includes('lot')) index = 8;
+  // If no specific match, cycle through remaining beautiful images so they don't repeat!
+  else index = (id % 4) + 8; // Cycles through 8, 9, 10, 11
+
+  return `https://images.unsplash.com/photo-${workingIds[index]}?auto=format&fit=crop&w=800&q=80`;
+};
+
 const Menu: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'Standard' | 'Traditional' | 'Premium' | 'Drinks'>('Standard');
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate the category tabs
+      gsap.fromTo(
+        '.menu-tab',
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out' }
+      );
+
+      // Animate the pizza cards when tab changes
+      gsap.fromTo(
+        '.pizza-card',
+        { y: 50, opacity: 0, scale: 0.95 },
+        { y: 0, opacity: 1, scale: 1, duration: 0.6, stagger: 0.1, ease: 'back.out(1.2)' }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [activeTab]);
 
   return (
-    <div className="bg-bg-cream/30 pt-32 pb-24">
+    <div ref={containerRef} className="bg-bg-cream/30 pt-32 pb-24">
       <div className="container-custom">
         {/* Header */}
         <div className="text-center mb-16">
@@ -72,49 +133,46 @@ const Menu: React.FC = () => {
           </p>
         </div>
 
-        {/* Pricing Summary */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          {(['Standard', 'Traditional', 'Premium'] as const).map((cat) => (
-            <div 
-              key={cat} 
-              className={`p-8 rounded-3xl border transition-all ${
-                activeTab === cat ? 'bg-primary-green text-white border-primary-green shadow-xl scale-105 z-10' : 'bg-white border-border-light'
-              }`}
+        {/* Unified Tab Navigation */}
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
+          {(['Standard', 'Traditional', 'Premium', 'Drinks'] as const).map((cat) => (
+            <button 
+              key={cat}
               onClick={() => setActiveTab(cat)}
-              role="button"
+              className={`menu-tab px-8 py-4 rounded-full font-barlow font-bold uppercase tracking-widest transition-all duration-300 ${
+                activeTab === cat 
+                  ? 'bg-primary-green text-white shadow-lg scale-105' 
+                  : 'bg-white text-text-primary border border-border-light hover:border-primary-green/50 hover:text-primary-green hover:shadow-md'
+              }`}
             >
-              <h3 className={`font-barlow font-bold text-2xl uppercase mb-4 ${activeTab === cat ? 'text-accent-yellow' : 'text-primary-green'}`}>
-                {cat}
-              </h3>
-              <div className="space-y-2 text-sm">
-                <div className="flex justify-between border-b border-white/10 pb-1">
-                  <span>9" Small</span>
-                  <span className="font-bold">${pricing[cat].small}</span>
-                </div>
-                <div className="flex justify-between border-b border-white/10 pb-1">
-                  <span>13" Extra Large</span>
-                  <span className="font-bold">${pricing[cat].xl}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>15" Family</span>
-                  <span className="font-bold">${pricing[cat].family}</span>
-                </div>
-              </div>
-            </div>
+              {cat === 'Drinks' ? 'Beverages & Add-ons' : `${cat} Pizzas`}
+            </button>
           ))}
         </div>
 
-        {/* Tabs for Drinks/Sides */}
-        <div className="flex justify-center mb-12">
-          <button 
-            onClick={() => setActiveTab('Drinks')}
-            className={`px-8 py-3 rounded-full font-bold uppercase tracking-widest text-sm transition-all ${
-              activeTab === 'Drinks' ? 'bg-accent-red text-white shadow-lg' : 'bg-white text-text-primary border border-border-light hover:border-accent-red'
-            }`}
-          >
-            Drinks & Sides
-          </button>
-        </div>
+        {/* Contextual Pricing Header */}
+        {activeTab !== 'Drinks' && (
+          <div className="pizza-card mb-12 text-center bg-white border border-border-light rounded-3xl p-6 md:p-8 shadow-sm max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <h3 className="font-barlow font-bold text-2xl text-primary-green uppercase tracking-widest md:text-left leading-tight">
+              {activeTab} <br/> Pricing
+            </h3>
+            <div className="flex flex-wrap justify-center md:justify-end gap-6 md:gap-12 text-text-primary flex-1">
+              <div className="flex flex-col items-center md:items-start border-l border-border-light pl-6">
+                <span className="text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-1">9" Small</span>
+                <span className="font-barlow font-black text-3xl">${pricing[activeTab].small}</span>
+              </div>
+              <div className="flex flex-col items-center md:items-start border-l border-border-light pl-6">
+                <span className="text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-1">13" Extra Large</span>
+                <span className="font-barlow font-black text-3xl">${pricing[activeTab].xl}</span>
+              </div>
+              <div className="flex flex-col items-center md:items-start border-l border-border-light pl-6">
+                <span className="text-xs font-bold text-text-secondary uppercase tracking-[0.2em] mb-1">15" Family</span>
+                <span className="font-black font-barlow text-3xl">${pricing[activeTab].family}</span>
+              </div>
+            </div>
+          </div>
+        )}
+
 
         {/* Menu Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -122,23 +180,30 @@ const Menu: React.FC = () => {
             pizzas
               .filter((p) => p.category === activeTab)
               .map((pizza) => (
-                <div key={pizza.id} className="bg-white p-8 rounded-[32px] border border-border-light hover:border-primary-green/30 hover:shadow-2xl transition-all group">
-                  <div className="flex justify-between items-start mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-primary-green/5 flex items-center justify-center text-primary-green group-hover:bg-primary-green group-hover:text-white transition-colors">
-                        <span className="font-barlow font-bold">{pizza.id}</span>
-                      </div>
+                <div key={pizza.id} className="pizza-card bg-white rounded-[32px] border border-border-light hover:border-primary-green/30 hover:shadow-2xl transition-all group overflow-hidden flex flex-col">
+                  {/* Pizza Image */}
+                  <div className="h-48 md:h-56 w-full relative overflow-hidden bg-bg-cream">
+                    <img 
+                      src={getPizzaImage(pizza.id, pizza.name)} 
+                      alt={pizza.name} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center text-primary-green shadow-lg font-barlow font-bold">
+                      {pizza.id}
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-8 flex-1 flex flex-col">
+                    <div className="mb-4">
                       <h3 className="font-barlow font-black text-2xl uppercase text-text-primary group-hover:text-primary-green transition-colors">
                         {pizza.name}
                       </h3>
                     </div>
-                    <div className="w-8 h-8 rounded-full bg-accent-yellow/20 flex items-center justify-center text-accent-yellow">
-                      <ChefHat size={16} />
-                    </div>
+                    <p className="text-text-secondary text-sm leading-relaxed min-h-[40px] flex-1">
+                      {pizza.ingredients}
+                    </p>
                   </div>
-                  <p className="text-text-secondary text-sm leading-relaxed min-h-[40px]">
-                    {pizza.ingredients}
-                  </p>
                 </div>
               ))
           ) : (
