@@ -64,9 +64,9 @@ const AboutSnippet: React.FC = () => {
             <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-primary-green/5 rounded-full blur-3xl -z-10" />
             
             {/* 30 Years Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-primary-green text-white p-8 rounded-2xl shadow-xl transform rotate-[-5deg]">
-              <p className="font-barlow font-black text-5xl leading-none mb-1 text-accent-yellow">30</p>
-              <p className="font-barlow font-bold text-xl uppercase leading-none tracking-widest">Years</p>
+            <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 bg-primary-green text-white p-5 md:p-8 rounded-2xl shadow-xl transform rotate-[-5deg]">
+              <p className="font-barlow font-black text-4xl md:text-5xl leading-none mb-1 text-accent-yellow">30</p>
+              <p className="font-barlow font-bold text-lg md:text-xl uppercase leading-none tracking-widest">Years</p>
               <p className="font-inter text-[10px] uppercase tracking-tighter opacity-70">Of Excellence</p>
             </div>
           </div>
@@ -76,7 +76,7 @@ const AboutSnippet: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-green/10 text-primary-green rounded-full text-xs font-bold uppercase tracking-widest mb-6">
               Our Legacy
             </div>
-            <h2 className="font-barlow font-black text-5xl md:text-6xl text-text-primary uppercase leading-tight mb-8">
+            <h2 className="font-barlow font-black text-4xl md:text-5xl lg:text-6xl text-text-primary uppercase leading-tight mb-8">
               The Secret to the <br />
               <span className="text-primary-green">Best Pizza on Earth</span>
             </h2>

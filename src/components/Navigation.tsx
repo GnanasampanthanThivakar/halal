@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { Link, useLocation } from 'react-router';
 
 const Navigation: React.FC = () => {
@@ -69,13 +69,10 @@ const Navigation: React.FC = () => {
         <div className="flex items-center gap-3">
           <a
             href="tel:0397939888"
-            className="hidden md:inline-flex btn-green"
-            style={{
-              clipPath: 'polygon(0 0, calc(100% - 8px) 0, 100% 50%, calc(100% - 8px) 100%, 0 100%)',
-              paddingRight: '36px',
-            }}
+            className="hidden md:inline-flex items-center gap-2 h-11 px-6 rounded-full bg-accent-red text-white font-bold text-sm uppercase tracking-widest hover:bg-accent-red-hover transition-all"
           >
-            CALL TO ORDER
+            <Phone size={15} />
+            Call to Order
           </a>
           <button
             className="lg:hidden w-9 h-9 flex items-center justify-center text-text-primary"
