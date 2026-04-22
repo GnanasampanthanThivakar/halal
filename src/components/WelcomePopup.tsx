@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, Phone, MapPin, Truck, UtensilsCrossed, Clock, Star } from 'lucide-react';
+import { X } from 'lucide-react';
 import gsap from 'gsap';
 
 const WelcomePopup: React.FC = () => {
@@ -7,7 +7,7 @@ const WelcomePopup: React.FC = () => {
 
   const overlayRef = useRef<HTMLDivElement>(null);
   const popupRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
+
 
   useEffect(() => {
     // Small delay before showing popup for dramatic effect
