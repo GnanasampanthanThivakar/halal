@@ -20,12 +20,15 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-bg-dark text-white">
-      <div className="container-custom py-16 md:py-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
+    <footer className="bg-bg-dark text-white relative overflow-hidden">
+      {/* Premium mobile ambient glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-80 bg-primary-green/10 blur-[120px] lg:hidden pointer-events-none" />
+      
+      <div className="container-custom py-12 md:py-20 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-10">
 
           {/* 1 — Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 bg-white/[0.03] lg:bg-transparent rounded-3xl lg:rounded-none p-8 lg:p-0 border border-white/[0.05] lg:border-none backdrop-blur-md lg:backdrop-blur-none shadow-[0_8px_30px_rgba(0,0,0,0.12)] lg:shadow-none flex flex-col items-center lg:items-start text-center lg:text-left">
             <div className="flex items-center gap-2 mb-5">
               <div className="w-20 h-20">
                 <img
@@ -64,8 +67,8 @@ const Footer: React.FC = () => {
           </div>
 
           {/* 2 — Navigation */}
-          <div>
-            <h4 className="font-barlow font-bold text-base uppercase tracking-wider mb-5 text-white">
+          <div className="bg-white/[0.03] lg:bg-transparent rounded-3xl lg:rounded-none p-8 lg:p-0 border border-white/[0.05] lg:border-none backdrop-blur-md lg:backdrop-blur-none">
+            <h4 className="font-barlow font-bold text-base uppercase tracking-wider mb-5 text-white flex items-center lg:block justify-center gap-2">
               Navigation
             </h4>
             <ul className="space-y-3">
@@ -83,8 +86,8 @@ const Footer: React.FC = () => {
           </div>
 
           {/* 3 — Our Location */}
-          <div>
-            <h4 className="font-barlow font-bold text-base uppercase tracking-wider mb-5 text-white">
+          <div className="bg-white/[0.03] lg:bg-transparent rounded-3xl lg:rounded-none p-8 lg:p-0 border border-white/[0.05] lg:border-none backdrop-blur-md lg:backdrop-blur-none">
+            <h4 className="font-barlow font-bold text-base uppercase tracking-wider mb-5 text-white flex items-center lg:block justify-center gap-2">
               Our Location
             </h4>
             <div className="space-y-4">
@@ -113,8 +116,8 @@ const Footer: React.FC = () => {
           </div>
 
           {/* 4 — Opening Hours */}
-          <div>
-            <h4 className="font-barlow font-bold text-base uppercase tracking-wider mb-5 text-white">
+          <div className="bg-white/[0.03] lg:bg-transparent rounded-3xl lg:rounded-none p-8 lg:p-0 border border-white/[0.05] lg:border-none backdrop-blur-md lg:backdrop-blur-none text-center lg:text-left">
+            <h4 className="font-barlow font-bold text-base uppercase tracking-wider mb-5 text-white flex items-center lg:block justify-center gap-2">
               Opening Hours
             </h4>
             <ul className="space-y-3">
@@ -128,8 +131,8 @@ const Footer: React.FC = () => {
           </div>
 
           {/* 5 — Newsletter */}
-          <div>
-            <h4 className="font-barlow font-bold text-base uppercase tracking-wider mb-5 text-white">
+          <div className="bg-white/[0.03] lg:bg-transparent rounded-3xl lg:rounded-none p-8 lg:p-0 border border-white/[0.05] lg:border-none backdrop-blur-md lg:backdrop-blur-none text-center lg:text-left sm:col-span-2 lg:col-span-1">
+            <h4 className="font-barlow font-bold text-base uppercase tracking-wider mb-5 text-white flex items-center lg:block justify-center gap-2">
               Newsletter
             </h4>
             <p className="text-white/60 text-sm leading-relaxed mb-5">

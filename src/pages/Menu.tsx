@@ -124,9 +124,9 @@ const Menu: React.FC = () => {
     <div ref={pageRef} style={{ background: 'linear-gradient(135deg, #FAF6EE 0%, #FDF8F3 60%, #F5EFE0 100%)' }}>
 
       {/* ── HERO ── */}
-      <div className="relative overflow-hidden" style={{ minHeight: '340px' }}>
-        {/* Pizza image top-right */}
-        <div className="absolute right-0 top-0 h-full w-[45%] pointer-events-none">
+      <div className="relative overflow-hidden" style={{ minHeight: '280px' }}>
+        {/* Pizza image top-right — hidden on mobile */}
+        <div className="absolute right-0 top-0 h-full w-[45%] pointer-events-none hidden md:block">
           <img
             src="/images/pizza-hero-main.png.png"
             alt=""
@@ -138,14 +138,14 @@ const Menu: React.FC = () => {
         <img src="/images/basil-leaf.png" alt="" className="absolute bottom-8 left-[5%] w-7 opacity-35 rotate-45 pointer-events-none" style={{ filter: 'blur(2px)' }} />
         <img src="/images/basil-leaf.png" alt="" className="absolute top-12 right-[44%] w-6 opacity-30 -rotate-20 pointer-events-none" style={{ filter: 'blur(1px)' }} />
 
-        <div className="container-custom relative z-10 pt-16 pb-10 text-center">
+        <div className="container-custom relative z-10 pt-10 md:pt-16 pb-8 md:pb-10 text-center">
           {/* Badge */}
           <div className="menu-hero-el inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-border-light text-text-secondary font-bold text-xs uppercase tracking-widest mb-5 shadow-sm">
             Our Delicious Menu 🍕
           </div>
 
           {/* Heading */}
-          <h1 className="menu-hero-el font-barlow font-black uppercase leading-tight tracking-tighter text-[clamp(40px,7vw,90px)]">
+          <h1 className="menu-hero-el font-barlow font-black uppercase leading-tight tracking-tighter text-[clamp(32px,7vw,90px)]">
             <span className="text-primary-green">The </span>
             <span className="text-accent-red">Pizza </span>
             <span className="text-primary-green">List</span>
@@ -166,12 +166,12 @@ const Menu: React.FC = () => {
           </div>
 
           {/* Tabs */}
-          <div className="menu-hero-el flex flex-wrap justify-center gap-3">
+          <div className="menu-hero-el flex overflow-x-auto scrollbar-hide gap-2 md:gap-3 md:flex-wrap md:justify-center pb-2 -mx-4 px-4 md:mx-0 md:px-0">
             {tabs.map(tab => (
               <button
                 key={tab.key}
                 onClick={() => setActiveTab(tab.key)}
-                className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-200 ${
+                className={`inline-flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-200 whitespace-nowrap shrink-0 ${
                   activeTab === tab.key
                     ? 'bg-accent-red text-white shadow-button'
                     : 'bg-white text-text-secondary border border-border-light hover:border-accent-red hover:text-accent-red'
@@ -188,8 +188,8 @@ const Menu: React.FC = () => {
 
         {/* ── PRICING BAR ── */}
         {activeTab !== 'Drinks' && (
-          <div className="bg-white rounded-2xl border border-border-light shadow-sm p-5 mb-10 flex flex-col sm:flex-row items-center gap-4">
-            <div className="flex items-center gap-2 pr-6 border-r border-border-light">
+          <div className="bg-white rounded-2xl border border-border-light shadow-sm p-4 md:p-5 mb-8 md:mb-10 flex flex-col sm:flex-row items-center gap-3 md:gap-4">
+            <div className="flex items-center gap-2 pr-0 sm:pr-6 border-b sm:border-b-0 sm:border-r border-border-light pb-3 sm:pb-0 w-full sm:w-auto justify-center sm:justify-start">
               <span className="text-2xl">🍕</span>
               <div>
                 <p className="font-barlow font-black text-lg text-primary-green uppercase leading-tight">
@@ -200,7 +200,7 @@ const Menu: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-wrap justify-center sm:justify-start gap-6 flex-1">
+            <div className="flex flex-wrap justify-center sm:justify-start gap-3 md:gap-6 flex-1">
               {[
                 { size: '9" Small', emoji: '🍕', price: pricing[activeTab].small },
                 { size: '13" Extra Large', emoji: '🍕', price: pricing[activeTab].xl },
@@ -221,14 +221,14 @@ const Menu: React.FC = () => {
         {/* ── PIZZA GRID ── */}
         <div ref={gridRef}>
           {activeTab !== 'Drinks' ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
               {currentPizzas.map(pizza => (
                 <div
                   key={pizza.id}
-                  className="pizza-card bg-white rounded-2xl border border-border-light hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
+                  className="pizza-card bg-white rounded-xl md:rounded-2xl border border-border-light hover:shadow-card-hover hover:-translate-y-1 transition-all duration-300 overflow-hidden group"
                 >
                   {/* Image */}
-                  <div className="relative h-48 overflow-hidden bg-bg-cream">
+                  <div className="relative h-28 md:h-48 overflow-hidden bg-bg-cream">
                     <img
                       src={pizza.image}
                       alt={pizza.name}
@@ -251,15 +251,15 @@ const Menu: React.FC = () => {
                   </div>
 
                   {/* Info */}
-                  <div className="p-4">
-                    <h3 className="font-barlow font-bold text-base text-text-primary uppercase leading-tight mb-1">
+                  <div className="p-3 md:p-4">
+                    <h3 className="font-barlow font-bold text-xs md:text-base text-text-primary uppercase leading-tight mb-0.5 md:mb-1">
                       {pizza.name}
                     </h3>
                     <div className="flex items-end justify-between gap-2">
-                      <p className="text-text-muted text-xs leading-relaxed flex-1 line-clamp-2">
+                      <p className="text-text-muted text-[10px] md:text-xs leading-relaxed flex-1 line-clamp-2 hidden md:block">
                         {pizza.ingredients}
                       </p>
-                      <button className="shrink-0 w-8 h-8 rounded-full bg-accent-red text-white flex items-center justify-center hover:bg-accent-red-hover transition-colors shadow-button">
+                      <button className="shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-accent-red text-white flex items-center justify-center hover:bg-accent-red-hover transition-colors shadow-button">
                         <Plus size={15} />
                       </button>
                     </div>
@@ -318,35 +318,35 @@ const Menu: React.FC = () => {
             <div className="flex flex-col items-start gap-3">
               <div className="flex items-center gap-4">
                 <div>
-                  <p className="text-white/70 text-base italic" style={{ fontFamily: 'cursive' }}>
-                    Craving Something
+                  <p className="text-white/70 text-base font-bold uppercase tracking-[0.2em] text-accent-red">
+                    Special Deal!
                   </p>
                   <h2 className="font-barlow font-black text-4xl md:text-5xl text-white uppercase leading-tight">
-                    Delicious?
+                    <span className="text-white">1.25L Drink &</span><br />
+                    <span className="text-accent-yellow">Garlic Bread</span>
                   </h2>
                 </div>
-                {/* 20% OFF badge */}
-                <div className="w-20 h-20 rounded-full bg-accent-red flex flex-col items-center justify-center shadow-button shrink-0">
-                  <p className="font-barlow font-black text-white text-2xl leading-none">20%</p>
-                  <p className="font-barlow font-black text-white text-sm leading-none uppercase">Off</p>
+                {/* $5 Badge */}
+                <div className="w-20 h-20 rounded-full bg-accent-yellow flex flex-col items-center justify-center shadow-button shrink-0 border-[3px] border-white/20">
+                  <p className="font-barlow font-black text-text-primary text-3xl leading-none">$5</p>
+                  <p className="font-barlow font-black text-text-primary text-[10px] leading-none uppercase mt-1 tracking-widest">Only</p>
                 </div>
               </div>
-              <p className="text-white/60 text-sm">Order now and get 20% off on your first order!</p>
+              <p className="text-white/60 text-sm">Grab our ultimate combo deal for a limited time!</p>
               <a
                 href="tel:0397939888"
-                className="inline-flex items-center gap-2 h-10 px-6 rounded-full bg-white text-text-primary text-xs font-bold uppercase tracking-widest hover:bg-bg-cream transition-all"
+                className="inline-flex items-center gap-2 h-10 px-6 rounded-full bg-white text-text-primary text-xs font-bold uppercase tracking-widest hover:bg-bg-cream transition-all mt-2"
               >
-                Order Now <ArrowRight size={13} />
+                Order Combo <ArrowRight size={13} />
               </a>
             </div>
 
-            {/* Right — pizza */}
-            <div className="shrink-0">
+            {/* Right — Promo image */}
+            <div className="shrink-0 flex items-center justify-center">
               <img
-                src="/images/pizza-hero-main.png.png"
-                alt="Pizza"
-                className="w-[200px] md:w-[260px] object-contain drop-shadow-2xl"
-                style={{ marginBottom: '-40px' }}
+                src="/images/deal_promo_image.png"
+                alt="Drink and Garlic Bread"
+                className="w-[180px] md:w-[240px] object-contain drop-shadow-2xl rounded-[32px] md:-my-6"
               />
             </div>
           </div>

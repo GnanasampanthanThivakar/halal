@@ -26,49 +26,53 @@ const PromoBannerSection: React.FC = () => {
     <div className="container-custom py-10">
       <div
         ref={sectionRef}
-        className="relative rounded-2xl overflow-hidden flex flex-col md:flex-row items-center justify-between px-8 md:px-14 py-8 md:py-0 gap-6 md:gap-0"
-        style={{
-          background: 'linear-gradient(90deg, #1a1a1a 0%, #2a2a2a 100%)',
-          minHeight: '130px',
-        }}
+        className="relative rounded-3xl overflow-hidden flex items-center px-8 md:px-12 py-10 md:py-0 bg-[#121212] shadow-2xl border border-white/5"
+        style={{ minHeight: '180px' }}
       >
-        {/* Subtle green glow bottom-right */}
-        <div className="absolute bottom-0 right-1/3 w-40 h-20 bg-primary-green/10 blur-2xl pointer-events-none" />
-
-        {/* LEFT — Text */}
-        <div className="relative z-10 flex flex-col items-center md:items-start gap-2 text-center md:text-left">
-          <p className="text-white/60 text-[11px] font-bold uppercase tracking-[0.25em]">
-            Craving Pizza?
-          </p>
-          <h2 className="font-barlow font-black uppercase leading-tight text-2xl md:text-3xl lg:text-4xl">
-            <span className="text-accent-yellow">Get 20% Off </span>
-            <span className="text-white">On Your First Order!</span>
-          </h2>
-          <a
-            href="tel:0397939888"
-            className="mt-1 inline-flex items-center gap-2 h-9 px-5 rounded-md bg-accent-red text-white text-xs font-bold uppercase tracking-widest hover:bg-accent-red-hover transition-all hover:-translate-y-0.5"
-          >
-            Order Now <ArrowRight size={13} />
-          </a>
-        </div>
-
-        {/* CENTER — Pizza image (overflows top on desktop) */}
-        <div className="relative z-10 flex items-end justify-center md:-mt-10 md:-mb-1">
+        {/* RIGHT — Premium Faded Image Background */}
+        <div 
+          className="absolute inset-y-0 right-0 w-full md:w-[60%] lg:w-1/2 pointer-events-none z-0"
+          style={{ 
+            maskImage: 'linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)', 
+            WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)' 
+          }}
+        >
           <img
-            src="/images/pizza-hero-main.png.png"
-            alt="Pizza"
-            className="w-[160px] md:w-[240px] lg:w-[280px] object-contain drop-shadow-2xl"
+            src="/images/deal_promo_image.png"
+            alt="Drink and Garlic Bread"
+            className="w-full h-full object-cover object-[center_30%] opacity-80 md:opacity-100"
           />
         </div>
 
-        {/* RIGHT — Promo code */}
-        <div className="relative z-10 flex flex-col items-center justify-center border-2 border-dashed border-accent-red/60 rounded-lg px-6 py-4">
-          <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.25em] mb-1">
-            Use Code:
-          </p>
-          <p className="font-barlow font-black text-accent-red text-2xl md:text-3xl uppercase tracking-wider">
-            PARADISE20
-          </p>
+        {/* LEFT — Content */}
+        <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 w-full md:w-auto">
+          {/* Text */}
+          <div className="flex flex-col items-start gap-1">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-accent-red/20 border border-accent-red/30 rounded-md mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-red animate-pulse" />
+              <p className="text-accent-red text-[9px] font-bold uppercase tracking-[0.2em] leading-none">
+                Special Deal
+              </p>
+            </div>
+            <h2 className="font-barlow font-black uppercase leading-[1.1] text-3xl md:text-4xl drop-shadow-md">
+              <span className="text-white">1.25L Drink &</span><br />
+              <span className="text-accent-yellow">Garlic Bread</span>
+            </h2>
+          </div>
+
+          {/* Pricing & CTA */}
+          <div className="flex flex-col items-start gap-3 mt-2 md:mt-0 md:pl-8 md:border-l border-white/10">
+            <div className="flex items-baseline gap-2 drop-shadow-md">
+              <span className="text-white/60 text-xs font-bold uppercase tracking-widest">Only</span>
+              <span className="font-barlow font-black text-white text-4xl md:text-5xl leading-none">$5</span>
+            </div>
+            <a
+              href="tel:0397939888"
+              className="inline-flex items-center justify-center gap-2 h-10 px-6 rounded-full bg-accent-red text-white text-xs font-bold uppercase tracking-widest shadow-[0_8px_20px_rgba(211,47,47,0.4)] hover:bg-accent-red-hover transition-all hover:scale-105 active:scale-95"
+            >
+              Order Now <ArrowRight size={14} />
+            </a>
+          </div>
         </div>
       </div>
     </div>

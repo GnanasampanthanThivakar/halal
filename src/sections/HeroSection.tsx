@@ -11,7 +11,8 @@ const HeroSection: React.FC = () => {
       gsap.timeline({ defaults: { ease: 'power3.out' } })
         .fromTo('.hero-el', { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, stagger: 0.11 })
         .fromTo('.hero-pizza-img', { x: 60, opacity: 0, scale: 1.2 }, { x: -120, opacity: 1, scale: 1.55, duration: 1.1, ease: 'back.out(1.2)' }, '-=0.5')
-        .fromTo('.hero-halal-badge', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: 'back.out(2)' }, '-=0.4');
+        .fromTo('.hero-halal-badge', { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: 'back.out(2)' }, '-=0.4')
+        .fromTo('.hero-mobile-img', { y: 40, opacity: 0, scale: 0.95 }, { y: 0, opacity: 1, scale: 1, duration: 0.9, ease: 'back.out(1.2)' }, '-=0.8');
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -34,16 +35,17 @@ const HeroSection: React.FC = () => {
       <img src="/images/basil-leaf.png" alt="" className="absolute top-6 right-[30%] w-7 opacity-40 -rotate-20 pointer-events-none z-[4] hidden sm:block" style={{ filter: 'blur(1.5px)' }} />
       <img src="/images/basil-leaf.png" alt="" className="absolute bottom-20 left-[4%] w-7 opacity-35 rotate-45 pointer-events-none z-[4]" style={{ filter: 'blur(3px)' }} />
       <img src="/images/basil-leaf.png" alt="" className="absolute top-[20%] right-[18%] w-6 opacity-30 rotate-[-30deg] pointer-events-none z-[4] hidden md:block" style={{ filter: 'blur(2px)' }} />
-
       {/* Mobile pizza background */}
-      <div className="absolute inset-0 lg:hidden pointer-events-none z-[1]">
+      <div className="absolute inset-0 lg:hidden pointer-events-none z-[1] overflow-hidden">
         <img
-          src="/images/pizza-hero-main.png.png"
+          src="/images/ChatGPT Image Apr 24, 2026, 10_28_11 PM.png"
           alt=""
-          className="absolute right-0 bottom-0 w-[70%] object-contain object-right-bottom opacity-30"
+          className="hero-mobile-img absolute inset-0 w-full h-full object-cover object-bottom"
+          style={{ mixBlendMode: 'multiply' }}
         />
+        {/* Strong gradient to make text crystal clear */}
+        <div className="absolute top-0 left-0 right-0 bottom-[15%] bg-gradient-to-b from-[#FAF6EE] from-40% via-[#FAF6EE]/95 via-75% to-transparent z-[2]" />
       </div>
-
       {/* Layout */}
       <div className="relative z-10 flex flex-col lg:flex-row items-center w-full" style={{ minHeight: '90vh' }}>
 
@@ -137,6 +139,8 @@ const HeroSection: React.FC = () => {
 
           </div>
         </div>
+
+
 
         {/* ── PIZZA (desktop only) ── */}
         <div className="relative w-1/2 h-full hidden lg:flex items-end justify-center" style={{ minHeight: '90vh' }}>

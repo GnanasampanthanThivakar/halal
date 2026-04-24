@@ -36,9 +36,9 @@ const About: React.FC = () => {
     <div ref={pageRef} style={{ background: 'linear-gradient(135deg, #FAF6EE 0%, #FDF8F3 60%, #F5EFE0 100%)' }}>
 
       {/* ── HERO ── */}
-      <div className="relative overflow-hidden" style={{ minHeight: '380px' }}>
-        {/* Pizza image right */}
-        <div className="absolute right-0 top-0 h-full w-[48%] pointer-events-none">
+      <div className="relative overflow-hidden" style={{ minHeight: '300px' }}>
+        {/* Pizza image right — hidden on mobile */}
+        <div className="absolute right-0 top-0 h-full w-[48%] pointer-events-none hidden md:block">
           <img
             src="/images/pizza-hero-main.png.png"
             alt=""
@@ -53,8 +53,8 @@ const About: React.FC = () => {
         <img src="/images/basil-leaf.png" alt="" className="absolute top-6 right-[42%] w-6 opacity-30 -rotate-20 pointer-events-none" style={{ filter: 'blur(1px)' }} />
         <img src="/images/basil-leaf.png" alt="" className="absolute top-1/2 right-[38%] w-5 opacity-25 rotate-60 pointer-events-none" style={{ filter: 'blur(2px)' }} />
 
-        <div className="relative z-10 container-custom pt-14 pb-12">
-          <div className="max-w-[52%]">
+        <div className="relative z-10 container-custom pt-10 md:pt-14 pb-10 md:pb-12">
+          <div className="max-w-full md:max-w-[52%]">
 
             {/* Badge */}
             <div className="hero-el inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-primary-green/20 text-primary-green font-bold text-xs uppercase tracking-widest mb-5">
@@ -63,8 +63,8 @@ const About: React.FC = () => {
 
             {/* Heading */}
             <h1 className="hero-el font-barlow font-black uppercase leading-[0.88] tracking-tighter mb-2">
-              <span className="block text-[clamp(50px,7vw,100px)] text-text-primary">About</span>
-              <span className="block text-[clamp(50px,7vw,100px)] text-accent-red">Us</span>
+              <span className="block text-[clamp(42px,7vw,100px)] text-text-primary">About</span>
+              <span className="block text-[clamp(42px,7vw,100px)] text-accent-red">Us</span>
             </h1>
 
             {/* Green underline */}
@@ -92,18 +92,18 @@ const About: React.FC = () => {
       </div>
 
       {/* ── STATS STRIP ── */}
-      <div className="stats-row container-custom pb-12">
-        <div className="bg-white rounded-2xl border border-border-light px-4 py-6">
+      <div className="stats-row container-custom pb-10 md:pb-12">
+        <div className="bg-white rounded-2xl border border-border-light px-3 md:px-4 py-4 md:py-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-border-light">
             {stats.map((s, i) => (
-              <div key={i} className="stat-card flex items-center gap-4 px-6 py-4">
-                <div className={`w-12 h-12 rounded-2xl ${s.bg} text-white flex items-center justify-center shrink-0`}>
+              <div key={i} className="stat-card flex items-center gap-3 md:gap-4 px-3 md:px-6 py-3 md:py-4">
+                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl ${s.bg} text-white flex items-center justify-center shrink-0`}>
                   {s.icon}
                 </div>
                 <div>
-                  <p className="font-barlow font-black text-2xl text-text-primary leading-none">{s.value}</p>
-                  <p className="font-bold text-xs text-text-primary uppercase tracking-wider mt-0.5">{s.label}</p>
-                  <p className="text-text-muted text-[11px] mt-0.5">{s.sub}</p>
+                  <p className="font-barlow font-black text-xl md:text-2xl text-text-primary leading-none">{s.value}</p>
+                  <p className="font-bold text-[10px] md:text-xs text-text-primary uppercase tracking-wider mt-0.5">{s.label}</p>
+                  <p className="text-text-muted text-[10px] md:text-[11px] mt-0.5 hidden sm:block">{s.sub}</p>
                 </div>
               </div>
             ))}
@@ -139,7 +139,7 @@ const About: React.FC = () => {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary-green/10 text-primary-green rounded-full text-xs font-bold uppercase tracking-widest mb-5">
               ⭐ Our Legacy
             </div>
-            <h2 className="font-barlow font-black text-4xl md:text-5xl text-text-primary uppercase leading-tight mb-3">
+            <h2 className="font-barlow font-black text-3xl md:text-5xl text-text-primary uppercase leading-tight mb-3">
               The Secret to the <br />
               <span className="text-primary-green">Best Pizza on Earth</span>
             </h2>
@@ -185,7 +185,7 @@ const About: React.FC = () => {
       {/* ── CTA BANNER ── */}
       <div className="container-custom pb-16">
         <div
-          className="relative rounded-2xl overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 px-10 md:px-14 py-10"
+          className="relative rounded-2xl overflow-hidden flex flex-col md:flex-row items-center justify-between gap-5 md:gap-6 px-6 md:px-14 py-8 md:py-10 text-center md:text-left"
           style={{ background: 'linear-gradient(90deg, #E21920 0%, #C41218 100%)' }}
         >
           {/* Pizza slice watermark */}

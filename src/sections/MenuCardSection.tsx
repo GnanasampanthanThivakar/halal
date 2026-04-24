@@ -21,14 +21,14 @@ const menuItems = [
     description: 'Double pepperoni with mozzarella cheese',
     price: '$13.99',
     category: 'Special Pizza',
-    image: '/images/herobg-pizza.png',
+    image: '/images/pepperoni_pizza_gen.png',
   },
   {
     name: 'BBQ Chicken Pizza',
     description: 'Grilled chicken, BBQ sauce, onions & tomatoes',
     price: '$14.99',
     category: 'Chicken Pizza',
-    image: '/images/pizzaforhero.png',
+    image: '/images/bbq_chicken_pizza_gen.png',
   },
   {
     name: 'Veggie Supreme',
@@ -56,7 +56,7 @@ const menuItems = [
     description: 'Toasted bread with garlic butter & herbs',
     price: '$5.99',
     category: 'Sides & Drinks',
-    image: '/images/food-sandwich.jpg',
+    image: '/images/garlic_bread_gen.png',
   },
   {
     name: 'Loaded Fries',

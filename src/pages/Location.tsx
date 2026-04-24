@@ -64,9 +64,9 @@ const Location: React.FC = () => {
     <div ref={pageRef} style={{ background: 'linear-gradient(135deg, #FAF6EE 0%, #FDF8F3 60%, #F5EFE0 100%)' }}>
 
       {/* ── HERO ── */}
-      <div className="relative overflow-hidden" style={{ minHeight: '360px' }}>
-        {/* Pizza image right */}
-        <div className="absolute right-0 top-0 h-full w-[45%] pointer-events-none">
+      <div className="relative overflow-hidden" style={{ minHeight: '280px' }}>
+        {/* Pizza image right — hidden on mobile */}
+        <div className="absolute right-0 top-0 h-full w-[45%] pointer-events-none hidden md:block">
           <img
             src="/images/pizza-hero-main.png.png"
             alt=""
@@ -79,8 +79,8 @@ const Location: React.FC = () => {
         <img src="/images/basil-leaf.png" alt="" className="absolute bottom-10 left-[4%] w-7 opacity-35 rotate-45 pointer-events-none" style={{ filter: 'blur(2px)' }} />
         <img src="/images/basil-leaf.png" alt="" className="absolute top-5 right-[40%] w-6 opacity-30 -rotate-20 pointer-events-none" style={{ filter: 'blur(1px)' }} />
 
-        <div className="relative z-10 container-custom pt-14 pb-12">
-          <div className="max-w-[55%]">
+        <div className="relative z-10 container-custom pt-10 md:pt-14 pb-10 md:pb-12">
+          <div className="max-w-full md:max-w-[55%]">
             {/* Badge */}
             <div className="hero-el inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-primary-green/20 text-primary-green font-bold text-xs uppercase tracking-widest mb-5 shadow-sm">
               <MapPin size={13} /> Visit Our Store
@@ -88,8 +88,8 @@ const Location: React.FC = () => {
 
             {/* Heading */}
             <h1 className="hero-el font-barlow font-black uppercase leading-[0.88] tracking-tighter mb-4">
-              <span className="block text-[clamp(44px,6vw,90px)] text-text-primary">Our</span>
-              <span className="block text-[clamp(44px,6vw,90px)] text-primary-green">Location</span>
+              <span className="block text-[clamp(36px,6vw,90px)] text-text-primary">Our</span>
+              <span className="block text-[clamp(36px,6vw,90px)] text-primary-green">Location</span>
             </h1>
 
             {/* Underline */}
@@ -103,18 +103,18 @@ const Location: React.FC = () => {
             </p>
 
             {/* Quick action buttons */}
-            <div className="hero-el flex flex-wrap gap-3">
+            <div className="hero-el flex flex-col sm:flex-row flex-wrap gap-3">
               <a
                 href="https://www.google.com/maps/search/?api=1&query=8+Clow+Street+Dandenong+VIC+3175"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 h-11 px-6 rounded-md bg-primary-green text-white text-sm font-bold uppercase tracking-widest hover:bg-primary-green-light transition-all shadow-sm"
+                className="inline-flex items-center gap-2 h-11 px-6 rounded-md bg-primary-green text-white text-xs sm:text-sm font-bold uppercase tracking-widest hover:bg-primary-green-light transition-all shadow-sm w-full sm:w-auto justify-center"
               >
                 <MapPin size={14} /> Get Directions
               </a>
               <a
                 href="tel:0397938388"
-                className="inline-flex items-center gap-2 h-11 px-6 rounded-md bg-white border border-border-light text-text-primary text-sm font-bold hover:border-accent-red hover:text-accent-red transition-all shadow-sm"
+                className="inline-flex items-center gap-2 h-11 px-6 rounded-md bg-white border border-border-light text-text-primary text-xs sm:text-sm font-bold hover:border-accent-red hover:text-accent-red transition-all shadow-sm w-full sm:w-auto justify-center"
               >
                 <Phone size={14} className="text-accent-red" /> Call Now
               </a>
@@ -218,12 +218,12 @@ const Location: React.FC = () => {
           </div>
 
           {/* Right — Map */}
-          <div className="map-panel lg:col-span-3 rounded-2xl overflow-hidden border-4 border-white shadow-card-hover relative" style={{ minHeight: '520px' }}>
+          <div className="map-panel lg:col-span-3 rounded-2xl overflow-hidden border-4 border-white shadow-card-hover relative" style={{ minHeight: '350px' }}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.4192080344404!2d145.2120023!3d-37.983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6116812826707%3A0xe54e58f278d6b8b!2s8%20Clow%20St%2C%20Dandenong%20VIC%203175%2C%20Australia!5e0!3m2!1sen!2sus!4v1713589332000!5m2!1sen!2sus"
               width="100%"
               height="100%"
-              style={{ border: 0, minHeight: '520px' }}
+              style={{ border: 0, minHeight: '350px' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -245,7 +245,7 @@ const Location: React.FC = () => {
       {/* ── CTA BANNER ── */}
       <div className="container-custom pb-16">
         <div
-          className="relative rounded-2xl overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 px-10 md:px-14 py-10"
+          className="relative rounded-2xl overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 px-6 md:px-14 py-8 md:py-10 text-center md:text-left"
           style={{ background: 'linear-gradient(90deg, #1B4D3E 0%, #2D7A5F 100%)' }}
         >
           <div className="absolute inset-0 opacity-10 pointer-events-none">

@@ -75,9 +75,9 @@ const Specials: React.FC = () => {
     <div ref={pageRef} style={{ background: 'linear-gradient(135deg, #FAF6EE 0%, #FDF8F3 60%, #F5EFE0 100%)' }}>
 
       {/* ── HERO ── */}
-      <div className="relative overflow-hidden" style={{ minHeight: '420px' }}>
-        {/* Pizza image right */}
-        <div className="absolute right-0 top-0 h-full w-[48%] pointer-events-none">
+      <div className="relative overflow-hidden" style={{ minHeight: '320px' }}>
+        {/* Pizza image right — hidden on mobile */}
+        <div className="absolute right-0 top-0 h-full w-[48%] pointer-events-none hidden md:block">
           <img
             src="/images/pizza-hero-main.png.png"
             alt=""
@@ -92,8 +92,8 @@ const Specials: React.FC = () => {
         <img src="/images/basil-leaf.png" alt="" className="absolute top-1/3 right-[46%] w-6 opacity-30 -rotate-20 pointer-events-none" style={{ filter: 'blur(1px)' }} />
         <img src="/images/basil-leaf.png" alt="" className="absolute top-6 right-[35%] w-7 opacity-40 rotate-30 pointer-events-none" style={{ filter: 'blur(2px)' }} />
 
-        <div className="relative z-10 container-custom pt-14 pb-12">
-          <div className="max-w-[55%]">
+        <div className="relative z-10 container-custom pt-10 md:pt-14 pb-10 md:pb-12">
+          <div className="max-w-full md:max-w-[55%]">
 
             {/* Badge */}
             <div className="hero-el inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-accent-red/20 text-accent-red font-bold text-xs uppercase tracking-widest mb-5 shadow-sm">
@@ -102,8 +102,8 @@ const Specials: React.FC = () => {
 
             {/* Heading */}
             <h1 className="hero-el font-barlow font-black uppercase leading-[0.88] tracking-tighter mb-4">
-              <span className="block text-[clamp(50px,7vw,100px)] text-text-primary">Special</span>
-              <span className="block text-[clamp(50px,7vw,100px)] text-accent-red">Deals</span>
+              <span className="block text-[clamp(40px,7vw,100px)] text-text-primary">Special</span>
+              <span className="block text-[clamp(40px,7vw,100px)] text-accent-red">Deals</span>
             </h1>
 
             {/* Decorative */}
@@ -120,7 +120,7 @@ const Specials: React.FC = () => {
             </p>
 
             {/* Countdown */}
-            <div className="hero-el flex items-center gap-4">
+            <div className="hero-el flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
               <div className="flex items-center gap-2 text-text-secondary">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
@@ -208,21 +208,21 @@ const Specials: React.FC = () => {
             />
           </div>
 
-          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 px-10 md:px-14 py-12">
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 px-6 md:px-14 py-10 md:py-12 text-center md:text-left">
 
             {/* Left */}
             <div className="flex-1">
-              <div className="flex items-center gap-2 mb-1">
+              <div className="flex items-center gap-2 mb-1 justify-center md:justify-start">
                 <div className="h-px w-6 bg-white/40" />
                 <span className="text-white/50 text-xs uppercase tracking-widest">➤</span>
               </div>
-              <h2 className="font-barlow font-black text-3xl md:text-4xl text-white uppercase leading-tight mb-1">
+              <h2 className="font-barlow font-black text-2xl md:text-4xl text-white uppercase leading-tight mb-1">
                 Hosting a Party
               </h2>
               <p className="text-white/80 italic text-xl mb-4" style={{ fontFamily: 'Georgia, serif' }}>
                 or Event?
               </p>
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-4 justify-center md:justify-start">
                 <span className="text-white/50 text-xs uppercase tracking-widest">➤</span>
                 <div className="h-px w-6 bg-white/40" />
               </div>
