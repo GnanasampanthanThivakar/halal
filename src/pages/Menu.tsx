@@ -259,9 +259,6 @@ const Menu: React.FC = () => {
                       <p className="text-text-muted text-[10px] md:text-xs leading-relaxed flex-1 line-clamp-2 hidden md:block">
                         {pizza.ingredients}
                       </p>
-                      <button className="shrink-0 w-7 h-7 md:w-8 md:h-8 rounded-full bg-accent-red text-white flex items-center justify-center hover:bg-accent-red-hover transition-colors shadow-button">
-                        <Plus size={15} />
-                      </button>
                     </div>
                   </div>
                 </div>
