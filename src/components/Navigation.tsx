@@ -85,12 +85,12 @@ const Navigation: React.FC = () => {
 
       {/* Premium Mobile Menu Overlay */}
       <div 
-        className={`absolute top-full left-0 w-full h-[calc(100vh-80px)] z-40 lg:hidden bg-white/95 backdrop-blur-3xl border-t border-black/5 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col ${
+        className={`absolute top-full left-0 w-full h-[calc(100vh-80px)] z-40 lg:hidden bg-white/95 backdrop-blur-3xl border-t border-black/5 transition-all duration-500 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] flex flex-col ${
           mobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-8 pointer-events-none'
         }`}
       >
         <div className="container-custom flex flex-col gap-1 p-6 flex-1 overflow-y-auto">
-          {navLinks.map((link, i) => (
+          {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
